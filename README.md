@@ -1,5 +1,8 @@
 # Adaptive-Softassign-Matching
 This package includes implementing my CVPR2024 work "Adaptive Softassign via Hadamard-Equipped Sinkhorn"[https://arxiv.org/pdf/2309.13855.pdf].
+demo_facebook_network contains the demo for facebook networks
+contains a demo for PPI networks and real images
+
 # Citation
 @misc{shen2023adaptive,
       title={Adaptive Softassign via Hadamard-Equipped Sinkhorn}, 
