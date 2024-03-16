@@ -1,5 +1,7 @@
 import networkx
 import numpy as np
+import ASM as *
+
 
 G_face = networkx.read_gpickle("G_face.gpickle") 
 G_face_noise_5 = networkx.read_gpickle("G_face_noise_5.gpickle")
