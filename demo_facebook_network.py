@@ -1,13 +1,22 @@
 import networkx
 import numpy as np
 
-nosiy_graph = networkx.read_leda("C:/Users/25493/Desktop/networks/networks/synthetic_nets_known_node_mapping/low_confidence/0Krogan_2007_high+25e.gw")
-sorce_graph = networkx.read_leda("C:/Users/25493/Desktop/networks/networks/synthetic_nets_known_node_mapping/0Krogan_2007_high.gw")
-adj_noisy = networkx.to_numpy_matrix(nosiy_graph)
-adj_sorce = networkx.to_numpy_matrix(sorce_graph)
+G_face = networkx.read_gpickle("G_face.gpickle") 
+G_face_noise_5 = networkx.read_gpickle("G_face_noise_5.gpickle")
+G_face_noise_15 = networkx.read_gpickle("G_face_noise_15.gpickle")
+G_face_noise_25 = networkx.read_gpickle("G_face_noise_25.gpickle")
 
-M, runtime = graphmatch_ASM(adj_noisy, adj_sorce,adaptive_alpha=1,niter_max=40,tol=0.1)
+adj = networkx.to_numpy_matrix(G_face)
+adj_5 = networkx.to_numpy_matrix(G_face_noise_5)
+adj_15 = networkx.to_numpy_matrix(G_face_noise_15)
+adj_25 = networkx.to_numpy_matrix(G_face_noise_25)
 
+adj = networkx.to_numpy_matrix(G_face)
+adj_5 = networkx.to_numpy_matrix(G_face_noise_5)
+adj_15 = networkx.to_numpy_matrix(G_face_noise_15)
+adj_25 = networkx.to_numpy_matrix(G_face_noise_25)
+
+M, runtime = graphmatch_ASM(adj, adj_25,adaptive_alpha=1)
 print('Running time is '+ str(runtime)+ 's')
-Accuracy = sum(np.diag(M))/4039 # The correct matching matrix is Identity matrix and number of nodes is 4039
+Accuracy = sum(np.diag(M))/4039 # The correct matching matrix is the Identity matrix, and the number of nodes is 4039
 print('Accuracy is '+ str(Accuracy)) 
