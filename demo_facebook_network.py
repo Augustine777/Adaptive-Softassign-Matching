@@ -1,6 +1,6 @@
 import networkx
 import numpy as np
-import asm as *
+import ASM as *
 
 
 G_face = networkx.read_gpickle("networks/facebook/G_face.gpickle")
